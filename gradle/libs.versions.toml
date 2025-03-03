@@ -64,7 +64,7 @@ pact-jvm-spring = { group = "au.com.dius", name = "pact-jvm-provider-spring", ve
 pact-hs-kotlin-dsl = { group = "net.helpscout", name = "hs-kotlin-pact-dsl", version = "0.3.0" }
 raven-logback = { group = "net.kencochrane.raven", name = "raven-logback", version = "6.0.0" }
 rest-assured-kotlin = { group = "io.rest-assured", name = "kotlin-extensions", version = "4.3.3" }
-aws-s3 = { group = "com.amazonaws", name = "aws-java-sdk-s3", version = "1.12.292" }
+aws-s3 = { group = "com.amazonaws", name = "aws-java-sdk-s3", version = "1.12.782" }
 sentry-logback = { group = "io.sentry", name = "sentry-logback", version = "5.7.4" }
 testcontainers = { group = "org.testcontainers", name = "testcontainers", version = "1.16.2" }
 twilio = { group = "com.twilio.sdk", name = "twilio", version = "8.23.0" }
