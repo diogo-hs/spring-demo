@@ -1,6 +1,12 @@
 {
   "extends": [
-    "config:base"
+      "config:recommended",
+      "schedule:nonOfficeHours",
+      ":docker",
+      ":enableVulnerabilityAlertsWithLabel(security)",
+      ":label(dependencies)",
+      ":prConcurrentLimit10",
+      ":separatePatchReleases"
   ],
   "prConcurrentLimit": 3
 }
