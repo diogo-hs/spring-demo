@@ -8,5 +8,5 @@
       ":prConcurrentLimit10",
       ":separatePatchReleases"
   ],
-  "prConcurrentLimit": 3
+  "prConcurrentLimit": 5
 }
