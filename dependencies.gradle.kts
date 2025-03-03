@@ -60,7 +60,7 @@ dependencyResolutionManagement {
             library("libphonenumber", "com.googlecode.libphonenumber", "libphonenumber").version("8.12.54")
             library("logstashLogbackEncoder", "net.logstash.logback", "logstash-logback-encoder").version("7.1")
             library("lombok", "org.projectlombok", "lombok").version("1.18.24")
-            library("metadataExtractor", "com.drewnoakes", "metadata-extractor").version("2.16.0")
+            library("metadataExtractor", "com.drewnoakes", "metadata-extractor").version("2.19.0")
             library("mockitoKotlin", "org.mockito.kotlin", "mockito-kotlin").version("4.0.0")
             library("orika", "ma.glasnost.orika", "orika-core").version("1.5.4")
             library("pactJvmSpring", "au.com.dius", "pact-jvm-provider-spring").versionRef("pact")
