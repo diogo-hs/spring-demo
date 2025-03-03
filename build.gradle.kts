@@ -1,9 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 
-val javaVersion by extra(JavaVersion.VERSION_11)
-val snippetsDir = file("$buildDir/generated-snippets")
-
 // versions referenced from "libs" catalog at "dependencies.gradle.kts"
 buildscript {
 	repositories {
@@ -14,26 +11,26 @@ buildscript {
 	}
 
 	dependencies {
-		classpath(libs.kotlinAllOpenPlugin)
-		classpath(libs.kotlinGradlePlugin)
-		classpath(libs.kotlinNoArgPlugin)
-		classpath(libs.moduleDependencyGraph)
-		classpath(libs.springBootGradlePlugin)
-		classpath(libs.taskTreePlugin)
+        classpath(libs.kotlin.allopen)
+        classpath(libs.kotlin.gradle.plugin)
+        classpath(libs.kotlin.noarg)
+        classpath(libs.module.dependency.graph)
+        classpath(libs.spring.boot.gradle)
+        classpath(libs.task.tree)
 	}
 }
 
 plugins {
 	java
 	jacoco
-	kotlin("jvm") version libs.versions.kotlin
-	kotlin("plugin.spring") version libs.versions.kotlin
-	kotlin("plugin.jpa") version libs.versions.kotlin
+    kotlin("jvm") version libs.versions.kotlin
+    kotlin("plugin.spring") version libs.versions.kotlin
+    kotlin("plugin.jpa") version libs.versions.kotlin
 
-	alias(libs.plugins.asciidoctor)
-	alias(libs.plugins.spring.boot)
-	alias(libs.plugins.task.tree)
-	alias(libs.plugins.module.dependency.graph)
+    alias(libs.plugins.asciidoctor)
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.task.tree)
+    alias(libs.plugins.module.dependency.graph)
 }
 
 apply(plugin = "org.jetbrains.kotlin.jvm")
@@ -57,48 +54,47 @@ extra["snippetsDir"] = file("build/generated-snippets")
 extra["testcontainersVersion"] = "1.17.2"
 
 dependencies {
-	implementation(enforcedPlatform(BOM_COORDINATES))
-	testImplementation(enforcedPlatform(BOM_COORDINATES))
-	annotationProcessor(enforcedPlatform(BOM_COORDINATES))
-	testAnnotationProcessor(enforcedPlatform(BOM_COORDINATES))
+    implementation(enforcedPlatform(BOM_COORDINATES))
+    testImplementation(enforcedPlatform(BOM_COORDINATES))
+    annotationProcessor(enforcedPlatform(BOM_COORDINATES))
+    testAnnotationProcessor(enforcedPlatform(BOM_COORDINATES))
 
-	annotationProcessor(libs.lombok)
+    annotationProcessor(libs.lombok)
 
-	implementation(libs.guava)
-	implementation(libs.jacksonModuleKotlin)
-	implementation(libs.jsoup)
-	implementation(libs.kotlinStdlibJdk8)
-	implementation(libs.lombok)
-	implementation(libs.orika)
-	implementation(libs.s3)
-	implementation(libs.springBootStarterDataJpa)
-	implementation(libs.springBootStarterValidation)
-	implementation(libs.springBootStarterWeb)
-	implementation(libs.vavr)
-	implementation(libs.javaInject)
+    implementation(libs.guava)
+    implementation(libs.jackson.module.kotlin)
+    implementation(libs.jsoup)
+    implementation(libs.kotlin.stdlib.jdk8)
+    implementation(libs.lombok)
+    implementation(libs.orika)
+    implementation(libs.aws.s3)
+    implementation(libs.spring.boot.starter.data.jpa)
+    implementation(libs.spring.boot.starter.validation)
+    implementation(libs.spring.boot.starter.web)
+    implementation(libs.vavr)
+    implementation(libs.java.inject)
+    implementation(libs.log4j)
 
-	runtimeOnly(libs.groovy) // needed for Sentry appender (production only)
-	runtimeOnly(libs.mysqlConnectorJava)
+    runtimeOnly(libs.groovy)
+    runtimeOnly(libs.mysql.connector.java)
 
-	testAnnotationProcessor(libs.lombok)
+    testAnnotationProcessor(libs.lombok)
 
-	testImplementation(libs.archJunit)
-	testImplementation(libs.bytebuddy)
-	testImplementation(libs.junitVintage) {
-		// recommended exclusion from the Spring Boot team
-		exclude(group = "org.hamcrest", module = "hamcrest-core")
-	}
-	testImplementation(libs.mockitoInline)
-	testImplementation(libs.mockitoKotlin)
-	testImplementation(libs.pactJvmSpring)
-	testImplementation(libs.restAssured)
-	testImplementation(libs.restAssuredJsonPath)
-	testImplementation(libs.restAssuredKotlinExtensions)
-	testImplementation(libs.restAssuredXmlPath)
-	testImplementation(libs.springBootStarterTest)
-	testImplementation(libs.springRestdocsCore)
-	testImplementation(libs.springRestdocsRestassured)
-	testImplementation(libs.wiremock)
+    testImplementation(libs.archunit)
+    testImplementation(libs.bytebuddy)
+    testImplementation(libs.junit.vintage) {
+        exclude(group = "org.hamcrest", module = "hamcrest-core")
+    }
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.pact.jvm.spring)
+    testImplementation(libs.rest.assured)
+    testImplementation(libs.rest.assured.json.path)
+    testImplementation(libs.rest.assured.kotlin)
+    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.spring.restdocs.core)
+    testImplementation(libs.spring.restdocs.restassured)
+    testImplementation(libs.wiremock)
 }
 
 tasks.withType<KotlinCompile> {
