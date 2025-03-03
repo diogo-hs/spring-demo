@@ -54,7 +54,7 @@ dependencyResolutionManagement {
             library("hsJavaHtmlTranscript", "net.helpscout", "hs-java-html-transcript").version("1.1.4")
             library("imgscalr", "org.imgscalr", "imgscalr-lib").version("4.2")
             library("javaInject", "javax.inject", "javax.inject").version("1")
-            library("javaJwt", "com.auth0", "java-jwt").version("3.18.2")
+            library("javaJwt", "com.auth0", "java-jwt").version("3.19.4")
             library("jsoup", "org.jsoup", "jsoup").version("1.14.3")
             library("kotlinCoroutines", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").withoutVersion()
             library("libphonenumber", "com.googlecode.libphonenumber", "libphonenumber").version("8.12.54")
